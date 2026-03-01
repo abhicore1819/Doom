@@ -34,7 +34,7 @@ export default function Searchbar() {
       .then((res) => {
         console.log(res);
         const song_data = res.song_data;
-        setSonglist(song_data)
+        setSonglist(song_data);
         if (res.status_code !== 200) {
           setisResponseEmpty(true);
           setShowresponse(false);
