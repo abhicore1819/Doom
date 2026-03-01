@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+body{
+  user-select: none;
+}
+
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent; /* Track ka background pseudo-element handle karega */
+  /* height: 3px; */
+  /* width: 100%; */
+  cursor: pointer;
+}
+
+/* TRACK */
+.range::-webkit-slider-runnable-track {
+  /* background: linear-gradient(90deg, #1e3cff, #4fa3ff); */
+  background: rgb(62, 62, 154);
+  height: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(30, 60, 255, 0.4);
+}
+
+/* THUMB */
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #1e3cff;
+  box-shadow: 0 0 6px rgba(30, 60, 255, 0.7);
+  margin-top: -6px; /* Track ke center me align karta h */
+}
+
