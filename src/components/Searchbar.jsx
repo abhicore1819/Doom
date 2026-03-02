@@ -55,7 +55,7 @@ export default function Searchbar() {
   };
 
   return (
-    <div className="bg-gray-900 min-h-screen p-5 text-white">
+    <div className="bg-[#131313] min-h-screen p-5 text-white">
       <div>
         {" "}
         {/* sidebar btn div */}
@@ -68,18 +68,18 @@ export default function Searchbar() {
           value={query}
           onChange={Handlequery}
           type="text"
-          className=" outline-none bg-gray-700 md:w-1/2 lg:w-1/3 rounded-l-full p-2 w-full"
+          className=" outline-none bg-[#212121] md:w-1/2 lg:w-1/3 rounded-l-full p-2 w-full"
           placeholder="What do you want to listen?"
         />
         <SearchIcon
           onClick={HandleSubmit}
-          className="bg-gray-700 h-13 w-13 p-2 rounded-r-full"
+          className="bg-[#212121] h-13 w-13 p-2 rounded-r-full"
         />
       </form>
-      <div className=" capitalize space-y-5 flex flex-col">
+      <div className="  h-screen capitalize space-y-5 ">
         {show_response
           ? displaysongs.map((element, index) => (
-              // contains the song info and img div
+              // contains the song info div and img div
               <div
                 onClick={() =>
                   setSongData({
@@ -89,10 +89,10 @@ export default function Searchbar() {
                     src: element["song_url"],
                   })
                 }
-                className=" gap-2 flex max-w-1/2 rounded-2xl p-2 bg-linear-to-r from bg-gray-700 via-gray-600 to-gray-800 space-y-5"
+                className=" gap-2 flex w-full md:w-1/2 rounded-2xl p-2 bg-[#212121] space-y-5"
                 key={index}
               >
-                <div className="p-2 h-28 w-28">
+                <div className="p-2  h-22 w-22">
                   {" "}
                   {/* contains the img */}
                   <img
@@ -114,13 +114,13 @@ export default function Searchbar() {
       {/* ----- req btn and empty res err div */}
       <div className=" flex flex-col items-center gap-5 p-5">
         <h1
-          className={` ${isresponseempty ? "text-red-500 text-center text-2xl" : "opacity-0"}`}
+          className={` ${isresponseempty ? " text-center text-2xl" : "opacity-0"}`}
         >
           {" "}
           {isresponseempty ? "We could'nt find !" : ""}
         </h1>
         {isresponseempty && (
-          <button className="bg-linear-to-r from bg-blue-700 via-blue-800 to-blue-950 p-2 rounded-2xl">
+          <button className="bg-linear-to-r from bg-white text-black p-2 rounded-2xl">
             Request this song !
           </button>
         )}

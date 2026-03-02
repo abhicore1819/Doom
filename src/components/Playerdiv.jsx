@@ -99,7 +99,7 @@ export default function Playerdiv(props) {
     }
 
     return (
-        <div className="flex sm:justify-between items-center gap-2 bg-linear-to-r from bg-gray-700 via-gray-600 to-gray-800 p-2 md:p-5 w-screen fixed bottom-0" >   {/* contains everything */}
+        <div className="flex sm:justify-between items-center gap-2 bg-black p-2 md:p-5 w-screen fixed bottom-0" >   {/* contains everything */}
             <div className="flex items-center gap-2" > {/** poster and song data div */}
                 <div className="p-2" >  {/* img div */}
                     <img ref={Poster_ref} src={`http://127.0.0.1:7000${props.song_data.poster}/`} className="h-15 w-15 rounded-2xl" alt="poster" />

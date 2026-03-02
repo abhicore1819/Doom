@@ -74,7 +74,7 @@ export default function Prefrences() {
 
     }
     return (
-        <div className="bg-gray-900 h-screen flex" >
+        <div className="bg-[#131313] h-screen flex" >
             <div>
                 <Sidebarbtn isShowbaractivate={showsidebar} />
             </div>
@@ -86,18 +86,18 @@ export default function Prefrences() {
                     <h1 className="text-red-500" >{fielderr.category_err}</h1>  {/*category err */}
 
                     {/* category feild */}
-                    <input value={prefr_form.pref_category} name='pref_category' onChange={Handlechange} type="text" className="bg-gray-700 rounded-2xl outline-none w-full p-5 text-white" placeholder="Fav category e.g.(Bollywood or something else)" />
+                    <input value={prefr_form.pref_category} name='pref_category' onChange={Handlechange} type="text" className="bg-[#212121] rounded-2xl outline-none w-full p-5 text-white" placeholder="Fav category e.g.(Bollywood or something else)" />
 
                     {/* genre feild */}
-                    <input value={prefr_form.pref_genre} name="pref_genre" onChange={Handlechange} type="text" className="bg-gray-700 rounded-2xl outline-none w-full p-5 text-white" placeholder="Fav genre e.g.(Romantice or something else)" />
+                    <input value={prefr_form.pref_genre} name="pref_genre" onChange={Handlechange} type="text" className="bg-[#212121] rounded-2xl outline-none w-full p-5 text-white" placeholder="Fav genre e.g.(Romantice or something else)" />
 
                     <h1 className="text-red-500" >{fielderr.genre_err}</h1> {/* genre err */}
 
                     {/* from where user coming feild */}
-                    <input value={prefr_form.from_usercoming} name="from_usercoming" onChange={Handlechange} type="text" className="bg-gray-700 rounded-2xl outline-none w-full p-5 text-white" placeholder="From where you heared about us" />
+                    <input value={prefr_form.from_usercoming} name="from_usercoming" onChange={Handlechange} type="text" className="bg-[#212121] rounded-2xl outline-none w-full p-5 text-white" placeholder="From where you heared about us" />
 
                     {/* submit btn */}
-                    <button onClick={Handlesubmit} className="bg-linear-to-r from bg-blue-700 via-blue-800 to-blue-950 font-semibold w-full rounded-2xl cursor-pointer text-white p-4 " >Submit</button>
+                    <button onClick={Handlesubmit} className="bg-white font-semibold w-full rounded-2xl cursor-pointer text-black p-4 " >Submit</button>
                     <h1 className="text-green-500 " >{submission_message}</h1>
                 </form>
             </div>
