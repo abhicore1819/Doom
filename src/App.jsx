@@ -85,7 +85,7 @@ export default function App() {
   // handles the personalized user greetings
 
   return (
-    <div className=" flex h-220 md:h-280 ">
+    <div className="h-screen md:h-280 ">
       {/* {showsidebar && <Sidebar />} */}
       {/* greetings section */}
       <div
@@ -102,10 +102,10 @@ export default function App() {
         <h1 className="text-[18px] text-white">Suggested for you</h1>
 
         {/* ----- suggested album's div -----*/}
-        <div className=" flex gap-2 md:gap-5 md:overflow-hidden overflow-x-scroll">
+        <div className="  grid md:flex grid-cols-3 gap-y-2 gap-x-2">
           {isauthenticated ? (
             suggested_songs.map((element, index) => (
-              <div
+              <div  // suggested album cards 
                 onClick={() =>
                   setSongdata({
                     song_name: element["song_name"],
@@ -115,32 +115,32 @@ export default function App() {
                   })
                 }
                 key={index}
-                className="bg-[#212121] px-2 py-5 rounded-2xl flex flex-col items-center gap-2 min-w-35 md:w-1/6"
+                className="bg-[#212121] rounded-lg p-2 w-full flex items-center flex-col "
               >
                 {" "}
                 {/* img and song info div */}
-                <div>
+                <div className="" >
                   {" "}
                   {/* img div*/}
                   <img
-                    className=" h-20 w-25 md:h-35 md:w-45 rounded-2xl"
+                    className=" rounded-lg h-20 w-25 md:h-45 md:w-55"
                     src={`http://127.0.0.1:7000/${element["poster"]}`}
                   />
                 </div>
-                <div className="text-center text-white">
+                <div className="text-center  space-y-2  ">
                   {" "}
                   {/** song info div */}
-                  <h1 className={`text-[16px] md:text-2xl capitalize`}>
+                  <h1 className={`text-[10px] font-semibold sm:text-2xl text-white capitalize p-2`}>
                     {element["song_name"]}
                   </h1>
-                  <h1 className={` text-[12px] md:text-[18px] capitalize`}>
+                  <h1 className={`text-[8px] sm:text-[16px] capitalize text-gray-400`}>
                     {element["artist"]}
                   </h1>
                 </div>
               </div>
             ))
           ) : (
-            <h1 className="text-center  text-white">
+            <h1 className="text-center text-white">
               Log in first, to see suggested songs
             </h1>
           )}
@@ -150,7 +150,7 @@ export default function App() {
 
         {/* ----- popular album section ----- */}
         <h1 className="text-[18px] text-white">Popular albums</h1>
-        <div className=" flex gap-2 md:gap-5 md:overflow-hidden overflow-x-scroll ">
+        <div className=" grid grid-cols-3 md:flex gap-y-2 p-2 gap-x-2">
           {popular_songs.map((element, index) => (
             <div
               onClick={() =>
@@ -162,7 +162,7 @@ export default function App() {
                 })
               }
               key={index}
-              className="bg-[#212121] px-2 py-5 rounded-2xl flex flex-col items-center gap-2 min-w-35 md:w-1/6"
+              className="bg-[#212121] rounded-lg p-2 flex flex-col items-center w-full"
             >
               {" "}
               {/* img and song info div */}
@@ -170,17 +170,17 @@ export default function App() {
                 {" "}
                 {/* img div*/}
                 <img
-                  className=" h-20 w-25 md:h-35 md:w-45 rounded-2xl"
+                  className=" rounded-lg h-20 w-25 md:h-45 md:w-55 "
                   src={`http://127.0.0.1:7000/${element["poster"]}`}
                 />
               </div>
-              <div className="text-center text-white">
+              <div className="text-center  text-white">
                 {" "}
                 {/** song info div */}
-                <h1 className={`text-[16px] md:text-2xl capitalize`}>
+                <h1 className={`text-[10px] font-semibold sm:text-2xl p-2 capitalize text-white`}>
                   {element["song_name"]}
                 </h1>
-                <h1 className={` text-[12px] md:text-[18px] capitalize`}>
+                <h1 className={`text-[8px] sm:text-[16px] capitalize text-gray-400`}>
                   {element["artist"]}
                 </h1>
               </div>
