@@ -33,7 +33,7 @@ export default function App() {
     fetch(URL)
       .then((raw_data) => raw_data.json())
       .then((data) => {
-        const FetchedUserCount = data.UserData.UserCount
+        const FetchedUserCount = data.UserData.UserCount;
         setUserCount(FetchedUserCount);
         setHasShowUsercount(true);
 
@@ -85,27 +85,27 @@ export default function App() {
   // handles the personalized user greetings
 
   return (
-    <div className="h-screen md:h-280 ">
+    <div className=" h-280 md:h-290 bg-[#131313] ">
       {/* {showsidebar && <Sidebar />} */}
       {/* greetings section */}
       <div
-        className={`bg-[#131313] space-y-8 p-5 ${showsidebar ? "w-full" : "w-screen"}`}
+        className={` bg-[#131313] space-y-8 p-2 ${showsidebar ? "w-full" : "w-screen"}`}
       >
         <Outlet />
         <Sidebarbtn isShowbaractivate={showsidebar} />
         {/* user greetings */}
-        <h1 className="text-white py-5 text-2xl capitalize ">
+        <h1 className="text-white py-5 px-2 text-2xl capitalize ">
           {`${usergreet ? "welcome, " + usergreet : "welcome user"}`}
         </h1>
         <h1 className="text-center font-semibold text-white">{`${hasshowusercount ? " You are the " + usercount + "th" + " user of doom 🎉!" : ""}`}</h1>
         {/* ----- suggestions sections ------ */}
-        <h1 className="text-[18px] text-white">Suggested for you</h1>
+        <h1 className="text-[18px] px-2 text-white">Suggested for you</h1>
 
         {/* ----- suggested album's div -----*/}
-        <div className="  grid md:flex grid-cols-3 gap-y-2 gap-x-2">
+        <div className="grid lg:flex grid-cols-3 gap-y-2 gap-x-2">
           {isauthenticated ? (
             suggested_songs.map((element, index) => (
-              <div  // suggested album cards 
+              <div // suggested album cards
                 onClick={() =>
                   setSongdata({
                     song_name: element["song_name"],
@@ -119,7 +119,7 @@ export default function App() {
               >
                 {" "}
                 {/* img and song info div */}
-                <div className="" >
+                <div className="">
                   {" "}
                   {/* img div*/}
                   <img
@@ -127,20 +127,24 @@ export default function App() {
                     src={`http://127.0.0.1:7000/${element["poster"]}`}
                   />
                 </div>
-                <div className="text-center  space-y-2  ">
+                <div className="text-center space-y-2  ">
                   {" "}
                   {/** song info div */}
-                  <h1 className={`text-[10px] font-semibold sm:text-2xl text-white capitalize p-2`}>
+                  <h1
+                    className={`text-[10px] font-semibold sm:text-[18px] text-white capitalize p-2`}
+                  >
                     {element["song_name"]}
                   </h1>
-                  <h1 className={`text-[8px] sm:text-[16px] capitalize text-gray-400`}>
+                  <h1
+                    className={`text-[8px] sm:text-[14px] capitalize text-gray-400`}
+                  >
                     {element["artist"]}
                   </h1>
                 </div>
               </div>
             ))
           ) : (
-            <h1 className="text-center text-white">
+            <h1 className="text-center text-white px-2">
               Log in first, to see suggested songs
             </h1>
           )}
@@ -149,8 +153,8 @@ export default function App() {
         {/* ----- suggestions sections ------ */}
 
         {/* ----- popular album section ----- */}
-        <h1 className="text-[18px] text-white">Popular albums</h1>
-        <div className=" grid grid-cols-3 md:flex gap-y-2 p-2 gap-x-2">
+        <h1 className="text-[18px] text-white px-2">Popular albums</h1>
+        <div className="grid grid-cols-3 lg:flex gap-y-2 p-2 gap-x-2">
           {popular_songs.map((element, index) => (
             <div
               onClick={() =>
@@ -162,7 +166,7 @@ export default function App() {
                 })
               }
               key={index}
-              className="bg-[#212121] rounded-lg p-2 flex flex-col items-center w-full"
+              className="bg-[#212121] rounded-lg p-2 w-full flex flex-col items-center "
             >
               {" "}
               {/* img and song info div */}
@@ -177,10 +181,14 @@ export default function App() {
               <div className="text-center  text-white">
                 {" "}
                 {/** song info div */}
-                <h1 className={`text-[10px] font-semibold sm:text-2xl p-2 capitalize text-white`}>
+                <h1
+                  className={`text-[10px] font-semibold sm:text-[18px] p-2 capitalize text-white`}
+                >
                   {element["song_name"]}
                 </h1>
-                <h1 className={`text-[8px] sm:text-[16px] capitalize text-gray-400`}>
+                <h1
+                  className={`text-[8px] sm:text-[14px] capitalize text-gray-400`}
+                >
                   {element["artist"]}
                 </h1>
               </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebarbtn from "./Sidebarbtn";
 import Playerdiv from "./Playerdiv";
-import { SearchIcon } from "lucide-react";
+import { AlarmSmoke, SearchIcon } from "lucide-react";
 import { useState } from "react";
 export default function Searchbar() {
   const [hasresponse, setHasresponse] = useState(false);
@@ -27,6 +27,7 @@ export default function Searchbar() {
   // handles the final query and recieve response from server
   const HandleSubmit = (event) => {
     event.preventDefault();
+    setisResponseEmpty(true);
     const URL_ENDPOINT = `http://127.0.0.1:7000/get_songs/${query}/`;
     console.log(URL_ENDPOINT);
     fetch(URL_ENDPOINT) // fetches the response
@@ -36,6 +37,7 @@ export default function Searchbar() {
         const song_data = res.song_data;
         setSonglist(song_data);
         if (res.status_code !== 200) {
+          // setHasresponse(false);
           setisResponseEmpty(true);
           setShowresponse(false);
         } else {
@@ -50,12 +52,8 @@ export default function Searchbar() {
       });
   };
 
-  const btn = () => {
-    console.log("displaysongs:-", displaysongs);
-  };
-
   return (
-    <div className="bg-[#131313] min-h-screen p-5 text-white">
+    <div className="bg-[#131313] p-5 text-white">
       <div>
         {" "}
         {/* sidebar btn div */}
@@ -76,7 +74,7 @@ export default function Searchbar() {
           className="bg-[#212121] h-13 w-13 p-2 rounded-r-full"
         />
       </form>
-      <div className="  h-screen capitalize space-y-5 ">
+      <div className=" h-screen capitalize space-y-5 ">
         {show_response
           ? displaysongs.map((element, index) => (
               // contains the song info div and img div
@@ -89,43 +87,46 @@ export default function Searchbar() {
                     src: element["song_url"],
                   })
                 }
-                className=" gap-2 flex w-full md:w-1/2 rounded-2xl p-2 bg-[#212121] space-y-5"
+                className=" bg-[#212121] rounded-lg flex md:w-1/2 lg:w-1/3"
                 key={index}
               >
-                <div className="p-2  h-22 w-22">
+                <div className=" p-2 ">
                   {" "}
                   {/* contains the img */}
                   <img
-                    className="rounded-2xl"
+                    className="rounded-lg h-12 w-16 "
                     src={`http://127.0.0.1:7000/${element["poster"]}`}
                     alt=""
                   />
                 </div>
-                <div className="p-2">
+                <div className="p-2 ">
                   {/* song info div */}
-                  <h1 className="font-bold">{element.song_name}</h1>
-                  <h1>{element.artist}</h1>
+                  <h1 className="font-bold sm:text-[15px] text-[10px]">
+                    {element.song_name}
+                  </h1>
+                  <h1 className=" sm:text-[12px] text-[8px] capitalize text-gray-400">
+                    {element.artist}
+                  </h1>
                 </div>
               </div>
             ))
           : ""}
+        {/* ----- req btn and empty res err div */}
+        <div className=" flex flex-col items-center gap-5 p-5">
+          <h1
+            className={` ${isresponseempty ? " text-center text-2xl" : "opacity-0"}`}
+          >
+            {" "}
+            {isresponseempty ? "We could'nt find !" : ""}
+          </h1>
+          {isresponseempty && (
+            <button className="bg-linear-to-r from bg-white text-black p-2 rounded-2xl">
+              Request this song !
+            </button>
+          )}
+        </div>
+        {/* ----- req btn and empty res err div */}
       </div>
-
-      {/* ----- req btn and empty res err div */}
-      <div className=" flex flex-col items-center gap-5 p-5">
-        <h1
-          className={` ${isresponseempty ? " text-center text-2xl" : "opacity-0"}`}
-        >
-          {" "}
-          {isresponseempty ? "We could'nt find !" : ""}
-        </h1>
-        {isresponseempty && (
-          <button className="bg-linear-to-r from bg-white text-black p-2 rounded-2xl">
-            Request this song !
-          </button>
-        )}
-      </div>
-      {/* ----- req btn and empty res err div */}
 
       {hasresponse ? <Playerdiv song_data={central_songdata} /> : ""}
     </div>
