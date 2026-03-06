@@ -102,7 +102,7 @@ export default function App() {
         <h1 className="text-[18px] px-2 text-white">Suggested for you</h1>
 
         {/* ----- suggested album's div -----*/}
-        <div className="grid lg:flex grid-cols-3 gap-y-2 gap-x-2">
+        <div className="grid lg:flex  grid-cols-3 gap-y-2 gap-x-2">
           {isauthenticated ? (
             suggested_songs.map((element, index) => (
               <div // suggested album cards
@@ -154,7 +154,7 @@ export default function App() {
 
         {/* ----- popular album section ----- */}
         <h1 className="text-[18px] text-white px-2">Popular albums</h1>
-        <div className="grid grid-cols-3 lg:flex gap-y-2 p-2 gap-x-2">
+        <div className="grid grid-cols-3  lg:flex gap-y-2  gap-x-2">
           {popular_songs.map((element, index) => (
             <div
               onClick={() =>
