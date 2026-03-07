@@ -12,7 +12,7 @@ import { NavLink } from "react-router-dom";
 export default function Sidebar() {
   return (
     <div
-      className={`bg-[#141414] w-full h-screen p-5 space-y-5 fixed top-0 left-0 z-10 transition-transform ease-in-out duration-500`}
+      className={`bg-[#141414] w-full md:w-1/2 h-screen p-5 space-y-5 fixed top-0 left-0 z-10 transition-transform ease-in-out duration-500`}
     >
       <div className="w-full">
         {/* logo */}

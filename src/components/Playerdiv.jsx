@@ -105,7 +105,7 @@ export default function Playerdiv(props) {
                     <img ref={Poster_ref} src={`http://127.0.0.1:7000${props.song_data.poster}/`} className="h-12 w-14 rounded-lg" alt="poster" />
                 </div>
 
-                <div className="text-center capitalize " >   {/* song info div */}
+                <div className="  capitalize " >   {/* song info div */}
                     <h1 ref={song_name_section} className="text-white text-[14px]" >{props.song_data.song_name ? props.song_data.song_name : "song name"}</h1>
                     <h1 ref={artist_name_section} className="text-gray-400 text-[10px]" >{props.song_data.artist ? props.song_data.artist : "artist name"}</h1>
                 </div>
