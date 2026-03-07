@@ -85,7 +85,7 @@ export default function App() {
   // handles the personalized user greetings
 
   return (
-    <div className="pb-30 bg-[#131313] flex">
+    <div className="pb-38 md:pb-30 bg-[#131313] flex">
       {/* {showsidebar && <Sidebar />} */}
       {/* greetings section */}
       <div

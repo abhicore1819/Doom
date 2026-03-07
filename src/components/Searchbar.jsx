@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebarbtn from "./Sidebarbtn";
 import Playerdiv from "./Playerdiv";
-import { AlarmSmoke, SearchIcon } from "lucide-react";
+import { AlarmSmoke, SearchIcon, CrossIcon, PlusIcon, MoreVertical, MoreHorizontal } from "lucide-react";
 import { useState } from "react";
 export default function Searchbar() {
   const [hasresponse, setHasresponse] = useState(false);
@@ -27,7 +27,6 @@ export default function Searchbar() {
   // handles the final query and recieve response from server
   const HandleSubmit = (event) => {
     event.preventDefault();
-    setisResponseEmpty(true);
     const URL_ENDPOINT = `http://127.0.0.1:7000/get_songs/${query}/`;
     console.log(URL_ENDPOINT);
     fetch(URL_ENDPOINT) // fetches the response
@@ -53,20 +52,20 @@ export default function Searchbar() {
   };
 
   return (
-    <div className="bg-[#131313] p-5 text-white">
+    <div className="bg-[#131313] min-h-screen p-5 text-white">
       <div>
         {" "}
         {/* sidebar btn div */}
         <Sidebarbtn isShowbaractivate={showsidebar} />
       </div>
-      <form onSubmit={HandleSubmit} className="p-5 flex justify-center ">
+      <form onSubmit={HandleSubmit} className="px-2 py-5 flex justify-center">
         {" "}
         {/* search bar div */}
         <input
           value={query}
           onChange={Handlequery}
           type="text"
-          className=" outline-none bg-[#212121] md:w-1/2 lg:w-1/3 rounded-l-full p-2 w-full"
+          className=" outline-none bg-[#212121] md:w-1/2 lg:w-1/3 p-2 w-full  rounded-l-full "
           placeholder="What do you want to listen?"
         />
         <SearchIcon
@@ -74,7 +73,7 @@ export default function Searchbar() {
           className="bg-[#212121] h-13 w-13 p-2 rounded-r-full"
         />
       </form>
-      <div className=" h-screen capitalize space-y-5 ">
+      <div className="capitalize space-y-5 pb-20 md:pb-10">
         {show_response
           ? displaysongs.map((element, index) => (
               // contains the song info div and img div
@@ -87,10 +86,10 @@ export default function Searchbar() {
                     src: element["song_url"],
                   })
                 }
-                className=" bg-[#212121] rounded-lg flex md:w-1/2 lg:w-1/3"
+                className=" hover:bg-[#2a2a2a] transition-all duration-500 rounded-lg flex p-2 gap-x-2 md:w-1/2 lg:w-1/3"
                 key={index}
               >
-                <div className=" p-2 ">
+                <div className=" ">
                   {" "}
                   {/* contains the img */}
                   <img
@@ -99,20 +98,30 @@ export default function Searchbar() {
                     alt=""
                   />
                 </div>
-                <div className="p-2 ">
+                <div className="flex justify-between items-center w-full" >   {/* song info & add btn div */}
+                  
+                  <div className="">
                   {/* song info div */}
-                  <h1 className="font-bold sm:text-[15px] text-[10px]">
+                  <h1 className="font-bold sm:text-[15px] text-[10px] ">
                     {element.song_name}
                   </h1>
                   <h1 className=" sm:text-[12px] text-[8px] capitalize text-gray-400">
                     {element.artist}
                   </h1>
                 </div>
+
+                <div className="cursor-pointer gap-2 flex" >    {/* contains add & more btns*/}
+                  <PlusIcon className="h-5 w-5" />
+                  <MoreHorizontal className="h-5 w-5" />
+                </div>  {/* contains add & more btns*/}
+
+                </div>    {/* song info & add btn div */}
               </div>
             ))
           : ""}
         {/* ----- req btn and empty res err div */}
         <div className=" flex flex-col items-center gap-5 p-5">
+          
           <h1
             className={` ${isresponseempty ? " text-center text-2xl" : "opacity-0"}`}
           >
