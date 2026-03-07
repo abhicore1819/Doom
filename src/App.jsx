@@ -85,7 +85,7 @@ export default function App() {
   // handles the personalized user greetings
 
   return (
-    <div className=" h-280 md:h-290 bg-[#131313] ">
+    <div className=" h-280 md:h-290 bg-[#131313] flex">
       {/* {showsidebar && <Sidebar />} */}
       {/* greetings section */}
       <div
@@ -127,7 +127,7 @@ export default function App() {
                     src={`http://127.0.0.1:7000/${element["poster"]}`}
                   />
                 </div>
-                <div className="text-center space-y-2  ">
+                <div className="text-center space-y-2 p-2">
                   {" "}
                   {/** song info div */}
                   <h1
@@ -178,7 +178,7 @@ export default function App() {
                   src={`http://127.0.0.1:7000/${element["poster"]}`}
                 />
               </div>
-              <div className="text-center  text-white">
+              <div className="text-center p-2 space-y-2 text-white">
                 {" "}
                 {/** song info div */}
                 <h1

@@ -59,7 +59,7 @@ export default function Playerdiv(props) {
 
     const SeekBar = () => { // controls the seek bar logic !
         Audioref.current.currentTime = Seek_bar.current.value
-        Seek_bar.current.max = Audioref.current.duration
+        // Seek_bar.current.max = Audioref.current.duration
         console.log("working perfectly...")
     }
 
@@ -99,23 +99,23 @@ export default function Playerdiv(props) {
     }
 
     return (
-        <div className="flex sm:justify-between items-center gap-2 bg-black p-2 md:p-5 w-screen fixed bottom-0" >   {/* contains everything */}
-            <div className="flex items-center gap-2" > {/** poster and song data div */}
+        <div className="bottom-0 w-full left-0 fixed gap-10 bg-black md:flex md:items-center" >   {/* contains everything */}
+            <div className="flex items-center gap-2  w-full " > {/** poster and song data div */}
                 <div className="p-2" >  {/* img div */}
-                    <img ref={Poster_ref} src={`http://127.0.0.1:7000${props.song_data.poster}/`} className="h-15 w-15 rounded-2xl" alt="poster" />
+                    <img ref={Poster_ref} src={`http://127.0.0.1:7000${props.song_data.poster}/`} className="h-12 w-14 rounded-lg" alt="poster" />
                 </div>
 
-                <div className="text-center capitalize" >   {/* song info div */}
-                    <h1 ref={song_name_section} className="text-white text-[16px]" >{props.song_data.song_name ? props.song_data.song_name : "song name"}</h1>
-                    <h1 ref={artist_name_section} className="text-white text-[12px]" >{props.song_data.artist ? props.song_data.artist : "artist name"}</h1>
+                <div className="text-center capitalize " >   {/* song info div */}
+                    <h1 ref={song_name_section} className="text-white text-[14px]" >{props.song_data.song_name ? props.song_data.song_name : "song name"}</h1>
+                    <h1 ref={artist_name_section} className="text-gray-400 text-[10px]" >{props.song_data.artist ? props.song_data.artist : "artist name"}</h1>
                 </div>
 
             </div>
 
-            <div className=" lg:w-100 lg:mx-90 space-y-5" >   {/** seek bar and controller's div */}
+            <div className="  p-2 w-full" >   {/** seek bar and controller's div */}
                 {/* audio tag */}
                 <audio onEnded={HandleEnd} onTimeUpdate={Format_time} onLoadedMetadata={Format_time} ref={Audioref} src={`http://127.0.0.1:7000/${props.song_data.src}/` ? `http://127.0.0.1:7000/${props.song_data.src}/` : ""}></audio>
-                <div className=" cursor-pointer flex items-center justify-center gap-5" >   {/* controllers */}
+                <div className=" cursor-pointer flex items-center justify-center gap-5 " >   {/* controllers */}
                     <SkipBackIcon onClick={BackwardSong} className=" text-white h-8 w-8" />
                     {/* <PlayIcon onClick={TogglePlayer} className={''} /> */}
                     {
@@ -124,9 +124,9 @@ export default function Playerdiv(props) {
                     <SkipForward onClick={ForwardSong} className=" text-white h-8 w-8" />
                 </div>
 
-                <div className=" flex text-white gap-2 p-2" >{/* seek bar div */}
+                <div className=" flex text-white gap-2 p-2  justify-center " >{/* seek bar div */}
                     <h1 ref={current_time_stamp} >0:00</h1>   {/* duration */}
-                    <input ref={Seek_bar} onChange={SeekBar} type="range" className="range w-full" />
+                    <input ref={Seek_bar} onChange={SeekBar} type="range" max={Audioref.current.duration} className="range w-100" />
                     <h1 ref={duration_stamp} >0:00</h1>   {/* current time */}
                 </div>
             </div>
