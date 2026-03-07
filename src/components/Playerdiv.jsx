@@ -107,7 +107,7 @@ export default function Playerdiv(props) {
 
                 <div className="  capitalize " >   {/* song info div */}
                     <h1 ref={song_name_section} className="text-white text-[14px]" >{props.song_data.song_name ? props.song_data.song_name : "song name"}</h1>
-                    <h1 ref={artist_name_section} className="text-gray-400 text-[10px]" >{props.song_data.artist ? props.song_data.artist : "artist name"}</h1>
+                    <h1 ref={artist_name_section} className="text-gray-400 text-[12px]" >{props.song_data.artist ? props.song_data.artist : "artist name"}</h1>
                 </div>
 
             </div>
