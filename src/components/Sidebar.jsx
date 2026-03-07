@@ -61,7 +61,7 @@ export default function Sidebar() {
             register
           </NavLink>{" "}
         </li>
-        {/* <li className="flex cursor-pointer items-center gap-5" ><Library /><NavLink className={(params) => (params.isActive ? 'bg-black w-full rounded-2xl p-2 text-white' : '')}  to={'/library'}>playlist</NavLink> </li> */}
+        <li className="flex cursor-pointer items-center gap-5" ><Library /><NavLink className={(params) => (params.isActive ? 'bg-black w-full rounded-2xl p-2 text-white' : '')}  to={'/library'}>playlist</NavLink> </li>
       </ul>
     </div>
   );

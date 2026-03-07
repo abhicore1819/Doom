@@ -116,18 +116,18 @@ export default function Playerdiv(props) {
                 {/* audio tag */}
                 <audio onEnded={HandleEnd} onTimeUpdate={Format_time} onLoadedMetadata={Format_time} ref={Audioref} src={`http://127.0.0.1:7000/${props.song_data.src}/` ? `http://127.0.0.1:7000/${props.song_data.src}/` : ""}></audio>
                 <div className=" cursor-pointer flex items-center justify-center gap-5 " >   {/* controllers */}
-                    <SkipBackIcon onClick={BackwardSong} className=" text-white h-8 w-8" />
+                    <SkipBackIcon onClick={BackwardSong} className=" text-white h-6 w-6" />
                     {/* <PlayIcon onClick={TogglePlayer} className={''} /> */}
                     {
-                        play ? < PauseIcon className=" text-white h-8 w-8" onClick={TogglePlayer} /> : < PlayIcon className=" text-white h-8 w-8" onClick={TogglePlayer} />
+                        play ? < PauseIcon className=" text-white h-6 w-6" onClick={TogglePlayer} /> : < PlayIcon className=" text-white h-6 w-6" onClick={TogglePlayer} />
                     }
-                    <SkipForward onClick={ForwardSong} className=" text-white h-8 w-8" />
+                    <SkipForward onClick={ForwardSong} className=" text-white h-6 w-6" />
                 </div>
 
                 <div className=" flex text-white gap-2 p-2  justify-center " >{/* seek bar div */}
-                    <h1 ref={current_time_stamp} >0:00</h1>   {/* duration */}
+                    <h1 ref={current_time_stamp} className="text-[12px]" >0:00</h1>   {/* duration */}
                     <input ref={Seek_bar} onChange={SeekBar} type="range" max={Audioref.current.duration} className="range w-100" />
-                    <h1 ref={duration_stamp} >0:00</h1>   {/* current time */}
+                    <h1 ref={duration_stamp} className="text-[12px]" >0:00</h1>   {/* current time */}
                 </div>
             </div>
         </div>
