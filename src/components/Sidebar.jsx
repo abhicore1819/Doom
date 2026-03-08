@@ -16,7 +16,7 @@ export default function Sidebar() {
     >
       <div className="w-full">
         {/* logo */}
-        <h1 className={`p-5 text-5xl capitalize font-bold text-white`}>Doom</h1>
+        <h1 className={`p-5 text-5xl capitalize font-bold text-white`}>Dooms</h1>
       </div>
       <ul
         className={`w-full  p-5 text-white capitalize text-[16px] lg:text-2xl space-y-5`}

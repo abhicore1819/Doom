@@ -143,9 +143,11 @@ export default function App() {
               </div>
             ))
           ) : (
-            <h1 className="text-center text-white px-2">
+            <div className=" w-full" >
+              <h1 className=" text-center text-[12px] text-white ">
               Log in first, to see suggested songs
             </h1>
+            </div>
           )}
         </div>
         {/* ----- sugueested album's div -----*/}
