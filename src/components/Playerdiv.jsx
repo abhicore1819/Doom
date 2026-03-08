@@ -102,7 +102,7 @@ export default function Playerdiv(props) {
         <div className="bottom-0 w-full left-0 fixed gap-10 bg-black md:flex md:items-center" >   {/* contains everything */}
             <div className="flex items-center gap-2  w-full " > {/** poster and song data div */}
                 <div className="p-2" >  {/* img div */}
-                    <img ref={Poster_ref} src={`http://127.0.0.1:7000${props.song_data.poster}/`} className="h-12 w-14 rounded-lg" alt="poster" />
+                    <img ref={Poster_ref} src={`http://127.0.0.1:7000${props.song_data.poster}/`} className="h-12 w-14 rounded-lg object-cover" alt="poster" />
                 </div>
 
                 <div className="  capitalize " >   {/* song info div */}

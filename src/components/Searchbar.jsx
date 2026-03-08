@@ -93,7 +93,7 @@ export default function Searchbar() {
                   {" "}
                   {/* contains the img */}
                   <img
-                    className="rounded-lg h-12 w-16 "
+                    className="rounded-lg h-12 w-16 object-cover "
                     src={`http://127.0.0.1:7000/${element["poster"]}`}
                     alt=""
                   />
